@@ -1,0 +1,1 @@
+# Define Pydantic models used for API data validation and serialization. These models define what data the API accepts and returns.

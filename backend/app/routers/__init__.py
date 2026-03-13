@@ -1,0 +1,1 @@
+# contains the API endpoints (the actual URLs your clients call). It helps organize routes by feature or resource.

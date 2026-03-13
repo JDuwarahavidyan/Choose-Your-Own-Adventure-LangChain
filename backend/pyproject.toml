@@ -1,0 +1,15 @@
+[project]
+name = "Full-Stack-AI-Project"
+version = "0.1.0"
+description = "A full-stack AI project built with Python and modern web technologies"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[all]>=0.135.1",
+    "langchain>=1.2.12",
+    "langchain-openai>=1.1.11",
+    "psycopg2-binary>=2.9.11",
+    "python-dotenv>=1.2.2",
+    "sqlalchemy>=2.0.48",
+    "uvicorn>=0.41.0",
+]
