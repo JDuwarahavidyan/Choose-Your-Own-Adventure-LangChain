@@ -3,7 +3,7 @@ from sqlalchemy.sql import func # To specify timestamp with timezone, we can use
 
 from db.database import Base
 
-class Job(Base):
+class StoryJob(Base):
     __tablename__ = "story_jobs"
 
     id = Column(Integer, primary_key=True, index=True) 
