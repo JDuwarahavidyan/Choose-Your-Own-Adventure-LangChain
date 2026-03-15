@@ -17,13 +17,19 @@ class StoryGenerator:
     @classmethod
     def _get_llm(cls):
         import os
-        open_api_key = os.getenv("CHOREO_OPENAI_CONNECTION_OPENAI_API_KEY")
-        base_url = os.getenv("CHOREO_OPENAI_CONNECTION_BASE_URL")
-        
-        if open_api_key and base_url:
-            return ChatOpenAI(model="gpt-5-mini", openai_api_key=open_api_key, base_url=base_url)
-        
-        return ChatOpenAI(model="gpt-5-mini")
+        from langchain_openai import ChatOpenAI
+
+        openai_api_key = os.getenv("CHOREO_OPENAI_CONNECTION_OPENAI_API_KEY")
+        serviceurl = os.getenv("CHOREO_OPENAI_CONNECTION_SERVICEURL")
+
+        if openai_api_key and serviceurl:
+            return ChatOpenAI(
+                model="gpt-4o-mini",
+                openai_api_key=openai_api_key,
+                base_url=serviceurl
+            )
+
+        return ChatOpenAI(model="gpt-4o-mini")
     
     @classmethod
     def generate_story(cls, db: Session, session_id: str, theme: str = "fantasy") -> Story:
