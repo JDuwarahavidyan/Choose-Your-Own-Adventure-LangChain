@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class StoryOptionsSchema(BaseModel):
-   txt: str
+   text: str
    node_id: Optional[int] = None
    
 class StoryNodeBase(BaseModel):
