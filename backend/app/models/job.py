@@ -1,17 +1,20 @@
 from sqlalchemy import Column, Integer, String, DateTime
-from sqlalchemy.sql import func # To specify timestamp with timezone, we can use func.now() to get the current time in the database's timezone. This is useful for ensuring that timestamps are consistent regardless of the server's timezone settings.
+from sqlalchemy.sql import (
+    func,
+)  # To specify timestamp with timezone, we can use func.now() to get the current time in the database's timezone. This is useful for ensuring that timestamps are consistent regardless of the server's timezone settings.
 
-from db.database import Base
+from app.db.database import Base
+
 
 class StoryJob(Base):
     __tablename__ = "story_jobs"
 
-    id = Column(Integer, primary_key=True, index=True) 
+    id = Column(Integer, primary_key=True, index=True)
     job_id = Column(String, index=True, unique=True)
     session_id = Column(String, index=True)
     theme = Column(String)
     status = Column(String)
     story_id = Column(Integer, index=True, nullable=True)
-    error= Column(String, nullable=True)
+    error = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     completed_at = Column(DateTime(timezone=True), nullable=True)
