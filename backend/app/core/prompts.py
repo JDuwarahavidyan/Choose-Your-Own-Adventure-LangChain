@@ -9,7 +9,9 @@ STORY_PROMPT = """
                 3. Each option should lead to another node with its own options
                 4. Some paths should lead to endings (both winning and losing)
                 5. At least one path should lead to a winning ending
-                6. Simple English language, suitable for a general audience
+                6. Should be English language and the answers should be concise and engaging
+                7. Do not use high-level terminology and even kids should be able to understand and enjoy the story.
+                8. The Main Root Node should give a good setup for the story and make the user want to explore the options with 5 to 6 sentences. Each subsequent node should also be engaging and concise with around 3 to 4 sentences.
 
                 Story structure requirements:
                 - Each node should have 2-3 options except for ending nodes

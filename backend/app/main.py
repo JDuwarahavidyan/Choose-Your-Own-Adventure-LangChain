@@ -7,6 +7,7 @@ from routers import job, story
 
 from db.database import create_tables
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     create_tables()
@@ -17,7 +18,7 @@ app = FastAPI(
     title="Choose Your Own Adventure Game API",
     description="An API for a choose your own adventure game built with FastAPI.",
     version="1.0.0",
-    lifespan=lifespan
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -28,9 +29,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(story.router, prefix="/stories", tags=["stories"])
-app.include_router(job.router, prefix="/jobs", tags=["jobs"])
+app.include_router(story.router)
+app.include_router(job.router)
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
