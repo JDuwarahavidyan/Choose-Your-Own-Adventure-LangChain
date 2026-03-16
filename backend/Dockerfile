@@ -14,9 +14,11 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy application source.
 COPY . .
 
-# Run as non-root for better container security.
-RUN adduser --disabled-password --gecos "" appuser && chown -R appuser:appuser /app
-USER appuser
+# Run as a fixed non-root UID/GID required by some platforms (e.g., Choreo).
+RUN addgroup --gid 10001 appgroup \
+    && adduser --disabled-password --gecos "" --uid 10001 --gid 10001 appuser \
+    && chown -R 10001:10001 /app
+USER 10001
 
 EXPOSE 8000
 
