@@ -4,7 +4,7 @@ import axios from "axios";
 import ThemeInput from "./ThemeInput.jsx";
 import LoadingStatus from "./LoadingStatus.jsx";
 
-const API_BASE_URL = "/api";
+import {API_BASE_URL} from "../util.js";
 
 function StoryGenerator() {
     const navigate = useNavigate()
