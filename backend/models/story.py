@@ -4,7 +4,7 @@ from sqlalchemy.sql import (
     func,
 )  # To specify timestamp with timezone, we can use func.now() to get the current time in the database's timezone. This is useful for ensuring that timestamps are consistent regardless of the server's timezone settings.
 
-from app.db.database import Base
+from db.database import Base
 
 
 class Story(Base):

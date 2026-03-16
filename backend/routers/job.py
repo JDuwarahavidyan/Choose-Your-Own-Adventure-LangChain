@@ -4,9 +4,9 @@ from fastapi import APIRouter, Depends, HTTPException, Cookie, Response, Backgro
 
 from sqlalchemy.orm import Session
 
-from app.db.database import get_db
-from app.models.job import StoryJob
-from app.schemas.job import StoryJobResponse
+from db.database import get_db
+from models.job import StoryJob
+from schemas.job import StoryJobResponse
 
 router = APIRouter(prefix="/jobs", tags=["jobs"])
 

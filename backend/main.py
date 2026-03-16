@@ -3,11 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import os
 
-from app.core.config import settings
+from core.config import settings
 
-from app.routers import job, story
+from routers import job, story
 
-from app.db.database import create_tables
+from db.database import create_tables
 
 
 @asynccontextmanager
@@ -37,4 +37,4 @@ app.include_router(job.router)
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("app.main:app", host="0.0.0.0", port=int(os.getenv("PORT", "8000")))
+    uvicorn.run("main:app", host="0.0.0.0", port=int(os.getenv("PORT", "8000")))
