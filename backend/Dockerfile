@@ -14,6 +14,10 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy application source.
 COPY . .
 
+RUN mkdir -p /app/data \
+    && touch /app/data/database.db \
+    && chmod -R 777 /app/data
+
 # Run as a fixed non-root UID/GID required by some platforms (e.g., Choreo).
 RUN addgroup --gid 10001 appgroup \
     && adduser --disabled-password --gecos "" --uid 10001 --gid 10001 appuser \
